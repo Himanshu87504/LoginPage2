@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <>
             <div
-                className="text-black px-4 sm:px-6 md:px-8 lg:px-16 bg-white/80 w-[600px] sm:w-[850px] md:w-full"
+                className="text-black px-4 sm:px-6 md:px-8 lg:px-16 bg-white/80  w-[700px] sm:w-[850px] md:w-full"
                 style={{
                     backgroundImage:
                         "url('https://png.pngtree.com/thumb_back/fh260/background/20220218/pngtree-light-bubble-minimalist-image_986487.jpg')",
@@ -49,7 +49,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className=" px-4  bg-gray-600 py-3 text-center text-sm text-white w-[600px] sm:w-[850px] md:w-full">
+            <div className=" px-4  bg-gray-600 py-3 text-center text-sm text-white  w-[700px] sm:w-[850px] md:w-full">
                 copyright © 2016-2025{" "}
                 <span className="text-red-600">Made4Ever.in</span> © All Rights Reserved.
             </div>
