@@ -96,10 +96,12 @@ const LoginPage = () => {
             </div>
 
             {/* Mobile Menu Overlay */}
-            {/* Mobile Menu Overlay */}
             {menuOpen && (
-                <div className="fixed inset-0 z-50 flex justify-end bg-black/40 backdrop-blur-md">
-                    <div className="w-64 sm:w-72 bg-white p-6 flex flex-col space-y-4 rounded-l-xl shadow-lg">
+                <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-md flex justify-end items-start pt-15">
+                    <div
+                        className="w-80 sm:w-96 bg-white p-6 flex flex-col space-y-4 rounded-l-xl shadow-lg"
+                        style={{ height: "80vh", width: "700px" }} // ✅ half screen height
+                    >
                         <div className="flex justify-between items-center mb-4">
                             <div className="text-xl font-bold text-pink-600">💍 Made4Ever</div>
                             <button
@@ -109,15 +111,58 @@ const LoginPage = () => {
                                 <FiX />
                             </button>
                         </div>
-                        <a href="#" className="hover:text-pink-600 transition">Home</a>
-                        <a href="#" className="hover:text-pink-600 transition">Register</a>
-                        <a href="#" className="hover:text-pink-600 transition">MSP/ Marriage Bureau Login</a>
-                        <a href="#" className="hover:text-pink-600 transition">Plans</a>
-                        <a href="#" className="hover:text-pink-600 transition">Gallery</a>
-                        <a href="#" className="hover:text-pink-600 transition">Contact us</a>
+
+                        <div className="flex flex-col space-y-3 mt-2 text-xl">
+                            <a
+                                href="#"
+                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium"
+                            >
+                                Home
+                            </a>
+                            <a
+                                href="#"
+                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium"
+                            >
+                                Register
+                            </a>
+                            <a
+                                href="#"
+                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium"
+                            >
+                                MSP/ Marriage Bureau Login
+                            </a>
+                            <a
+                                href="#"
+                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium"
+                            >
+                                Plans
+                            </a>
+                            <a
+                                href="#"
+                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium"
+                            >
+                                Gallery
+                            </a>
+                            <a
+                                href="#"
+                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium"
+                            >
+                                Contact us
+                            </a>
+                        </div>
+                        <div className="flex space-x-5 mt-4 ml-20">
+                            <button className="px-4 py-2 bg-pink-600 text-white rounded-lg font-medium hover:bg-pink-700 transition-colors duration-200">
+                                Login
+                            </button>
+                            <button className="px-4 py-2 border border-pink-600 text-pink-600 rounded-lg font-medium hover:bg-pink-100 transition-colors duration-200">
+                                Signup
+                            </button>
+                        </div>
+
                     </div>
                 </div>
             )}
+
 
 
             <Footer />
