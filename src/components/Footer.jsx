@@ -58,7 +58,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Bottom Copyright Bar */}
+
             <div className="bg-gray-700 py-3 text-center text-sm text-white w-full">
                 © 2016-2025{" "}
                 <span className="text-red-500">Made4Ever.in</span> — All Rights Reserved.
