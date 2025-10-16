@@ -22,27 +22,6 @@ const LoginPage = () => {
             >
                 {/* Header */}
                 <Menu />
-                <header className="flex justify-between items-center px-4 sm:px-8 py-4 bg-white/70 backdrop-blur-sm relative z-50 w-full ">
-                    <div className="text-2xl font-bold text-pink-600">💍 Made4Ever</div>
-
-                    {/* Desktop nav */}
-                    <nav className="hidden md:flex gap-4 text-gray-700 font-medium text-sm md:text-base">
-                        <a href="#" className="hover:text-pink-600 transition">Home</a>
-                        <a href="#" className="hover:text-pink-600 transition">Register</a>
-                        <a href="#" className="hover:text-pink-600 transition">MSP/ Marriage Bureau Login</a>
-                        <a href="#" className="hover:text-pink-600 transition">Plans</a>
-                        <a href="#" className="hover:text-pink-600 transition">Gallery</a>
-                        <a href="#" className="hover:text-pink-600 transition">Contact us</a>
-                    </nav>
-
-                    {/* Hamburger button (mobile only) */}
-                    <button
-                        className="md:hidden text-2xl text-pink-600 z-50"
-                        onClick={() => setMenuOpen(true)}
-                    >
-                        <FiMenu />
-                    </button>
-                </header>
 
                 {/* Main content */}
                 <main className="flex flex-col justify-center px-4 sm:px-8 lg:px-16 mt-10">
@@ -98,76 +77,7 @@ const LoginPage = () => {
                 </main>
             </div>
 
-            {/* Mobile Menu Overlay */}
-            {menuOpen && (
-                <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-md flex justify-end items-start pt-15  rounded-3xl pr-5">
-                    <div
-                        className="w-80 sm:w-96 bg-white p-8 flex flex-col space-y-4 rounded-xl shadow-lg"
-                        style={{ height: "100vh", width: "650px" }} // ✅ half screen height
-                    >
-                        <div className="flex justify-between items-center mb-4">
-                            <div className="text-4xl font-bold text-pink-600">💍 Made4Ever</div>
-                            <button
-                                className="text-4xl text-pink-600"
-                                onClick={() => setMenuOpen(false)}
-                            >
-                                <FiX />
-                            </button>
-                        </div>
-
-                        <div className="flex flex-col space-y-3 mt-2 text-3xl border-0 border-gray-50 ">
-                            <a
-                                href="#"
-                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium border-3 border-gray-50"
-                            >
-                                Home
-                            </a>
-                            <a
-                                href="#"
-                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium border-3 border-gray-50"
-                            >
-                                Register
-                            </a>
-                            <a
-                                href="#"
-                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium border-3 border-gray-50"
-                            >
-                                MSP/ Marriage Bureau Login
-                            </a>
-                            <a
-                                href="#"
-                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium border-3 border-gray-50"
-                            >
-                                Plans
-                            </a>
-                            <a
-                                href="#"
-                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium border-3 border-gray-50"
-                            >
-                                Gallery
-                            </a>
-                            <a
-                                href="#"
-                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium border-3 border-gray-50"
-                            >
-                                Contact us
-                            </a>
-                        </div>
-                        <div className="flex space-x-9 mt-4 ml-20">
-                            <button className="px-4 py-2 bg-pink-600 text-white rounded-lg font-medium hover:bg-pink-700 transition-colors duration-200 text-3xl">
-                                Login
-                            </button>
-                            <button className="px-4 py-2 border border-pink-600 text-pink-600 rounded-lg font-medium hover:bg-pink-100 transition-colors duration-200 text-3xl">
-                                Signup
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-            )}
-
             <Footer />
-            <Menu />
 
         </>
     );
