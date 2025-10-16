@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 
 const Menu = () => {
@@ -18,8 +19,8 @@ const Menu = () => {
                 {/* Logo */}
                 <div className="text-2xl font-bold text-pink-600">💍 Made4Ever</div>
 
-                {/* Desktop Navigation */}
-                <nav className="hidden md:flex flex-wrap justify-end gap-4 text-gray-700 font-medium text-sm md:text-base">
+                {/* Desktop Menu */}
+                <nav className="hidden md:flex flex-wrap justify-end gap-6 text-gray-700 font-medium text-sm md:text-base">
                     {menuItems.map((item, index) => (
                         <a
                             key={index}
@@ -67,13 +68,13 @@ const Menu = () => {
                 className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                     }`}
             >
-                <ul className="flex flex-col px-6 pb-4 space-y-2 text-gray-700 font-medium bg-white/50">
+                <ul className="flex flex-col px-6 pb-4 space-y-2 text-gray-700 font-medium bg-white/50 backdrop-blur-sm">
                     {menuItems.map((item, index) => (
                         <li key={index}>
                             <a
                                 href="#"
                                 className="block py-2 px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition"
-                                onClick={() => setIsOpen(false)} // close on click
+                                onClick={() => setIsOpen(false)} // close menu on click
                             >
                                 {item}
                             </a>
