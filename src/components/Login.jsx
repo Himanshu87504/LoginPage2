@@ -1,19 +1,18 @@
 
 import React, { useState } from "react";
 import { CiHome } from "react-icons/ci";
-import { FiMenu, FiX } from "react-icons/fi";
+
 import Footer from "./Footer";
 import Menu from "./Menu";
 
 const LoginPage = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const [menuOpen, setMenuOpen] = useState(false);
 
     return (
         <>
             {/* Page background with blur when menu is open */}
             <div
-                className={`relative w-full min-h-[70vh] sm:h-[80vh] md:h-screen  flex flex-col bg-cover bg-center transition-all duration-300 ${menuOpen ? "blur-sm brightness-90" : ""
+                className={`relative w-full min-h-[70vh] sm:h-[80vh] md:h-screen  flex flex-col bg-cover bg-center transition-all duration-300 
                     }`}
                 style={{
                     backgroundImage:
