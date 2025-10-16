@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CiHome } from "react-icons/ci";
 import { FiMenu, FiX } from "react-icons/fi";
 import Footer from "./Footer";
+import Menu from "./Menu";
 
 const LoginPage = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -19,6 +20,7 @@ const LoginPage = () => {
                 }}
             >
                 {/* Header */}
+                <Menu />
                 <header className="flex justify-between items-center px-4 sm:px-8 py-4 bg-white/70 backdrop-blur-sm relative z-50 w-full ">
                     <div className="text-2xl font-bold text-pink-600">💍 Made4Ever</div>
 
@@ -97,64 +99,64 @@ const LoginPage = () => {
 
             {/* Mobile Menu Overlay */}
             {menuOpen && (
-                <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-md flex justify-end items-start pt-15">
+                <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-md flex justify-end items-start pt-15  rounded-3xl pr-5">
                     <div
-                        className="w-80 sm:w-96 bg-white p-6 flex flex-col space-y-4 rounded-l-xl shadow-lg"
-                        style={{ height: "80vh", width: "700px" }} // ✅ half screen height
+                        className="w-80 sm:w-96 bg-white p-8 flex flex-col space-y-4 rounded-xl shadow-lg"
+                        style={{ height: "100vh", width: "650px" }} // ✅ half screen height
                     >
                         <div className="flex justify-between items-center mb-4">
-                            <div className="text-xl font-bold text-pink-600">💍 Made4Ever</div>
+                            <div className="text-4xl font-bold text-pink-600">💍 Made4Ever</div>
                             <button
-                                className="text-2xl text-pink-600"
+                                className="text-4xl text-pink-600"
                                 onClick={() => setMenuOpen(false)}
                             >
                                 <FiX />
                             </button>
                         </div>
 
-                        <div className="flex flex-col space-y-3 mt-2 text-xl">
+                        <div className="flex flex-col space-y-3 mt-2 text-3xl border-0 border-gray-50 ">
                             <a
                                 href="#"
-                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium"
+                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium border-3 border-gray-50"
                             >
                                 Home
                             </a>
                             <a
                                 href="#"
-                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium"
+                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium border-3 border-gray-50"
                             >
                                 Register
                             </a>
                             <a
                                 href="#"
-                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium"
+                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium border-3 border-gray-50"
                             >
                                 MSP/ Marriage Bureau Login
                             </a>
                             <a
                                 href="#"
-                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium"
+                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium border-3 border-gray-50"
                             >
                                 Plans
                             </a>
                             <a
                                 href="#"
-                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium"
+                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium border-3 border-gray-50"
                             >
                                 Gallery
                             </a>
                             <a
                                 href="#"
-                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium"
+                                className="px-10 py-2 rounded-lg hover:bg-pink-100 hover:text-pink-700 transition-colors duration-200 font-medium border-3 border-gray-50"
                             >
                                 Contact us
                             </a>
                         </div>
-                        <div className="flex space-x-5 mt-4 ml-20">
-                            <button className="px-4 py-2 bg-pink-600 text-white rounded-lg font-medium hover:bg-pink-700 transition-colors duration-200">
+                        <div className="flex space-x-9 mt-4 ml-20">
+                            <button className="px-4 py-2 bg-pink-600 text-white rounded-lg font-medium hover:bg-pink-700 transition-colors duration-200 text-3xl">
                                 Login
                             </button>
-                            <button className="px-4 py-2 border border-pink-600 text-pink-600 rounded-lg font-medium hover:bg-pink-100 transition-colors duration-200">
+                            <button className="px-4 py-2 border border-pink-600 text-pink-600 rounded-lg font-medium hover:bg-pink-100 transition-colors duration-200 text-3xl">
                                 Signup
                             </button>
                         </div>
@@ -163,9 +165,9 @@ const LoginPage = () => {
                 </div>
             )}
 
-
-
             <Footer />
+            <Menu />
+
         </>
     );
 };
