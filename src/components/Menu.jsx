@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 
 const Menu = () => {
@@ -20,7 +19,7 @@ const Menu = () => {
                 <div className="text-2xl font-bold text-pink-600">💍 Made4Ever</div>
 
                 {/* Desktop Menu */}
-                <nav className="hidden md:flex flex-wrap justify-end gap-6 text-gray-700 font-medium text-sm md:text-base">
+                <nav className="hidden md:flex items-center gap-6 text-gray-700 font-medium text-sm md:text-base">
                     {menuItems.map((item, index) => (
                         <a
                             key={index}
@@ -32,7 +31,7 @@ const Menu = () => {
                     ))}
                 </nav>
 
-                {/* Hamburger Icon for Mobile */}
+                {/* Hamburger for Mobile */}
                 <button
                     onClick={() => setIsOpen(!isOpen)}
                     className="md:hidden focus:outline-none text-gray-700 hover:text-pink-600 transition"
@@ -42,7 +41,6 @@ const Menu = () => {
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
                     >
                         {isOpen ? (
                             <path
@@ -63,7 +61,7 @@ const Menu = () => {
                 </button>
             </div>
 
-            {/* Mobile Dropdown Menu */}
+            {/* Mobile Dropdown */}
             <div
                 className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                     }`}
@@ -74,12 +72,22 @@ const Menu = () => {
                             <a
                                 href="#"
                                 className="block py-2 px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition"
-                                onClick={() => setIsOpen(false)} // close menu on click
+                                onClick={() => setIsOpen(false)}
                             >
                                 {item}
                             </a>
                         </li>
                     ))}
+
+                    <div className="flex items-center gap-2 ml-4">
+                        <button className="px-4 py-1 border border-pink-500 text-pink-500 rounded hover:bg-pink-500 hover:text-white transition">
+                            Login
+                        </button>
+                        <button className="px-4 py-1 bg-pink-500 text-white rounded hover:bg-pink-600 transition">
+                            Signup
+                        </button>
+                    </div>
+
                 </ul>
             </div>
         </header>
