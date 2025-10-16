@@ -12,7 +12,7 @@ const LoginPage = () => {
         <>
             {/* Page background with blur when menu is open */}
             <div
-                className={`relative w-full min-h-[50vh] sm:h-[60vh] md:h-screen  flex flex-col bg-cover bg-center transition-all duration-300 ${menuOpen ? "blur-sm brightness-90" : ""
+                className={`relative w-full min-h-[70vh] sm:h-[80vh] md:h-screen  flex flex-col bg-cover bg-center transition-all duration-300 ${menuOpen ? "blur-sm brightness-90" : ""
                     }`}
                 style={{
                     backgroundImage:
