@@ -90,8 +90,8 @@ const LoginPage = () => {
                                 Login
                             </button>
                             <div className="space-x-4 flex flex-col items-end">
-                                <Link to="/otpLogin" className="text-red-500">ForgotePassword</Link>
-                                <Link to="/forgetPassword " className="text-red-500">Otp Trough Login</Link>
+                                <Link to="/otpLogin" className="text-red-500">Otp Trough Login</Link>
+                                <Link to="/forgetPassword " className="text-red-500"> ForgotePassword</Link>
                             </div>
                         </form>
                     </div>
