@@ -68,7 +68,7 @@ const OtpLogin = () => {
                 </form>
 
                 <div className="mt-4 text-center">
-                    <Link to="/login" className="text-sm text-blue-600 hover:underline">
+                    <Link to="/" className="text-sm text-blue-600 hover:underline">
                         Back to Login
                     </Link>
                 </div>
