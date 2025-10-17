@@ -30,8 +30,9 @@ export const UserProvider = ({ children }) => {
     const signup = async (formData) => {
         try {
             const res = await axios.post(`${server}/api/signup`, formData);
-            alert(res.data.otp);
-            // Save activation token in localStorage
+
+
+            console.log("OTP response:", res.data);
             localStorage.setItem("activationToken", res.data.activationToken);
             return res.data;
         } catch (err) {
@@ -53,6 +54,7 @@ export const UserProvider = ({ children }) => {
             });
 
             // Clear token after successful verification
+            console.log("OTP response:", res.data);
             localStorage.removeItem("activationToken");
 
             return res.data;
@@ -68,7 +70,7 @@ export const UserProvider = ({ children }) => {
         try {
             const res = await axios.post(`${server}/api/request-otp-login`, { email });
             setLoginTokenotp(res.data.loginToken);
-            alert(res.data.otp);
+            console.log("OTP response:", res.data);
             return res.data;
         } catch (err) {
             throw new Error(err.response?.data?.message || "Failed to send OTP");
@@ -84,6 +86,7 @@ export const UserProvider = ({ children }) => {
                 loginToken: loginTokenotp,
             });
             localStorage.setItem("token", res.data.token);
+
             setUser(res.data.user || null);
             setLoginTokenotp("");
             return res.data;
@@ -100,7 +103,7 @@ export const UserProvider = ({ children }) => {
 
             // Save token for next step
             setForgetTokenotp(res.data.resetToken);
-            alert(res.data.otp);
+
 
             console.log("OTP response:", res.data);
             return res.data;
