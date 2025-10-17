@@ -1,6 +1,12 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+
 
 const Menu = () => {
+    const navigate = useNavigate();
+
     const [isOpen, setIsOpen] = useState(false);
 
     const menuItems = [
@@ -15,20 +21,27 @@ const Menu = () => {
     return (
         <header className="w-full bg-white/50 backdrop-blur-sm shadow-sm fixed top-0 left-0 z-50">
             <div className="flex justify-between items-center px-4 sm:px-8 md:px-16 py-4">
-                {/* Logo */}
+
                 <div className="text-2xl font-bold text-pink-600">💍 Made4Ever</div>
 
-                {/* Desktop Menu */}
+
                 <nav className="hidden md:flex items-center gap-6 text-gray-700 font-medium text-sm md:text-base">
                     {menuItems.map((item, index) => (
-                        <a
-                            key={index}
-                            href="#"
-                            className="hover:text-pink-600 transition duration-200"
+                        <Link
+                            to={`/${item.replace(/\s+/g, "").toLowerCase()}`}
+                            className="block py-2 px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition"
+                            onClick={() => setIsOpen(false)}
                         >
                             {item}
-                        </a>
+                        </Link>
+
                     ))}
+                    <button
+                        className="px-4 py-1 bg-pink-500 text-white rounded hover:bg-pink-600 transition"
+                        onClick={() => navigate("/signup")}
+                    >
+                        Signup
+                    </button>
                 </nav>
 
                 {/* Hamburger for Mobile */}
@@ -61,7 +74,7 @@ const Menu = () => {
                 </button>
             </div>
 
-            {/* Mobile Dropdown */}
+
             <div
                 className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                     }`}
@@ -69,23 +82,30 @@ const Menu = () => {
                 <ul className="flex flex-col px-6 pb-4 space-y-2 text-gray-700 font-medium bg-white/50 backdrop-blur-sm">
                     {menuItems.map((item, index) => (
                         <li key={index}>
-                            <a
-                                href="#"
+                            <Link
+                                to={`/${item.replace(/\s+/g, "").toLowerCase()}`} // create a path based on item text
                                 className="block py-2 px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition"
                                 onClick={() => setIsOpen(false)}
                             >
                                 {item}
-                            </a>
+                            </Link>
+
                         </li>
+
                     ))}
 
                     <div className="flex items-center gap-2 ml-4">
-                        <button className="px-4 py-1 border border-pink-500 text-pink-500 rounded hover:bg-pink-500 hover:text-white transition">
+                        <button className="px-4 py-1 border border-pink-500 text-pink-500 rounded hover:bg-pink-500 hover:text-white transition"
+                            onClick={() => navigate("/")}>
                             Login
                         </button>
-                        <button className="px-4 py-1 bg-pink-500 text-white rounded hover:bg-pink-600 transition">
+                        <button
+                            className="px-4 py-1 bg-pink-500 text-white rounded hover:bg-pink-600 transition"
+                            onClick={() => navigate("/signup")}
+                        >
                             Signup
                         </button>
+
                     </div>
 
                 </ul>
