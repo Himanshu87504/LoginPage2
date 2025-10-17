@@ -28,6 +28,7 @@ export const UserProvider = ({ children }) => {
     };
 
     const signup = async (formData) => {
+        console.log("Requesting OTP for:", email);
         try {
             const res = await axios.post(`${server}/api/signup`, formData);
 
@@ -67,6 +68,7 @@ export const UserProvider = ({ children }) => {
 
     // Request OTP
     const requestOtpLogin = async (email) => {
+        console.log("Requesting OTP for:", email);
         try {
             const res = await axios.post(`${server}/api/request-otp-login`, { email });
             setLoginTokenotp(res.data.loginToken);
@@ -80,6 +82,7 @@ export const UserProvider = ({ children }) => {
 
     const verifyOtpLogin = async (otp) => {
         try {
+
             if (!loginTokenotp) throw new Error("No OTP token available. Request OTP first.");
             const res = await axios.post(`${server}/api/verify-otp-login`, {
                 otp,
@@ -97,6 +100,7 @@ export const UserProvider = ({ children }) => {
 
     // Step 1: Request OTP
     const ForgetPassword = async (email) => {
+        console.log("Requesting OTP for:", email);
         try {
             console.log("Requesting OTP for:", email);
             const res = await axios.post(`${server}/api/forgot-password`, { email });
