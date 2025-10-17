@@ -15,7 +15,9 @@ const OtpLogin = () => {
         try {
             if (!loginTokenotp) {
                 const res = await requestOtpLogin(email);
-                alert(res.message); // OTP sent
+                alert(res.message);
+
+                // OTP sent
             } else {
                 const res = await verifyOtpLogin(otp);
                 alert(res.message || "✅ Login successful!");
