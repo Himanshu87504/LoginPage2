@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Menu from "./components/Menu";
 import OtpLogin from "./components/OtpLogin";
 import ForgetPassword from "./components/ForgetPassword";
+import Home from "./components/Home";
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
       <BrowserRouter>
         <Menu />
         <Routes>
-          <Route path="/" element={<LoginPage />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/LoginPage " element={<LoginPage />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/otpLogin" element={<OtpLogin />} />
           <Route path="/forgetPassword" element={<ForgetPassword />} />

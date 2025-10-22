@@ -18,10 +18,9 @@ const SignupPage = () => {
         confirmPassword: "",
     });
 
-    // Step 2 OTP data
+    
     const [otp, setOtp] = useState("");
 
-    // UI states
     const [step, setStep] = useState(1); // 1 = Signup form, 2 = OTP verification
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
@@ -40,22 +39,22 @@ const SignupPage = () => {
 
         try {
             if (step === 1) {
-                // Step 1: Request OTP
+               
                 const res = await signup(form);
                 alert(res.message || "OTP sent successfully! Check your email/console.");
 
-                // Save activation token in localStorage
+              
                 localStorage.setItem("activationToken", res.activationToken);
-                setStep(2); // go to OTP step
+                setStep(2);
             } else {
-                // Step 2: Verify OTP
+               
                 const token = localStorage.getItem("activationToken");
                 if (!token) throw new Error("Activation token not found. Please signup again.");
 
                 const res = await verifySignupOtp(otp, token);
                 alert(res.message || "Signup successful!");
 
-                // Clear activation token
+    
                 localStorage.removeItem("activationToken");
 
                 navigate("/login");

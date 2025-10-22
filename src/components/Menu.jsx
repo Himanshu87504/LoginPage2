@@ -44,7 +44,7 @@ const Menu = () => {
                     </button>
                 </nav>
 
-                {/* Hamburger for Mobile */}
+
                 <button
                     onClick={() => setIsOpen(!isOpen)}
                     className="md:hidden focus:outline-none text-gray-700 hover:text-pink-600 transition"
@@ -83,7 +83,7 @@ const Menu = () => {
                     {menuItems.map((item, index) => (
                         <li key={index}>
                             <Link
-                                to={`/${item.replace(/\s+/g, "").toLowerCase()}`} // create a path based on item text
+                                to={item == "Home" ? "/" : `/${item.replace(/\s+/g, "").toLowerCase()}`}
                                 className="block py-2 px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition"
                                 onClick={() => setIsOpen(false)}
                             >
