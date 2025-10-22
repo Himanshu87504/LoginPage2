@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+    const navigate = useNavigate();
     return (
         <>
 
@@ -17,6 +19,12 @@ const Home = () => {
                     <h4 className="text-pink-500 text-xl sm:text-2xl font-semibold mt-4">
                         Made4Ever
                     </h4>
+                    <button
+                        className="px-4 py-1 bg-pink-500 text-white rounded hover:bg-pink-600 transition"
+                        onClick={() => navigate("/login")}
+                    >
+                        Login
+                    </button>
                 </div>
             </div>
 

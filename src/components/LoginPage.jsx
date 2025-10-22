@@ -1,15 +1,15 @@
 import React, { useContext, useState } from "react";
 import { CiHome } from "react-icons/ci";
-
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import Menu from "./Menu";
 import { UserContext } from "../Context/UserContext";
-import { Link } from "react-router-dom";
 
 const LoginPage = () => {
     const [form, setForm] = useState({ email: "", password: "" });
     const { loginUser } = useContext(UserContext);
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
 
     const handelonchange = (e) => {
         const { name, value } = e.target;
@@ -19,6 +19,7 @@ const LoginPage = () => {
     const submitbutton = (e) => {
         e.preventDefault();
         loginUser(form);
+        navigate("/dashboard")
         setForm({ email: "", password: "" });
     };
 
@@ -102,3 +103,5 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
+

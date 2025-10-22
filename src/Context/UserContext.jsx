@@ -4,22 +4,26 @@ import axios from "axios";
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
+
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(null);
     const [loginTokenotp, setLoginTokenotp] = useState("");
     const [ForgetTokenotp, setForgetTokenotp] = useState("");
-    //const server = "https://made4ever-server.onrender.com"
-    const server = "http://localhost:5001";
+    const server = "https://made4ever-server.onrender.com"
+
+    // const server = "http://localhost:5001";
 
     // Normal login
     const loginUser = async (form) => {
         try {
+
             const response = await axios.post(`${server}/api/login`, form);
             if (response.data.token) {
                 setUser(response.data.user);
                 setToken(response.data.token);
                 localStorage.setItem("token", response.data.token);
                 alert(response.data.message);
+                return response;
             }
         } catch (error) {
             console.error("Login error:", error.response?.data || error.message);
