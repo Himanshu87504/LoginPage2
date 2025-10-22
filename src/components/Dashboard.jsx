@@ -94,55 +94,67 @@ const Dashboard = () => {
 
             <div className='w-full h-10 bg-gray-300'></div>
 
-            <div>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-                    {profiles.map((profile) => (
-                        <div key={profile.id} className="bg-white rounded shadow p-1 text-center flex">
-                            <img
-                                src={profile.profilePic}
-                                alt={profile.name}
-                                className="w-35 h-50 rounded-2xl"
-                            />
-                            <div className="pl-3 space-y-2">
+            <div className="p-4">
+                <div className="p-4">
+                    {/* ✅ Responsive Grid: 1 → 2 → 3 columns */}
+                    <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6">
+                        {profiles.map((profile) => (
+                            <div
+                                key={profile.id}
+                                className="bg-white rounded-2xl shadow-lg p-4 flex flex-col sm:flex-row items-center sm:items-start transition-transform hover:scale-[1.02]"
+                            >
+                                {/* 🖼️ Profile Image */}
+                                <img
+                                    src={profile.profilePic}
+                                    alt={profile.name}
+                                    className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 object-cover rounded-2xl shadow-md"
+                                />
 
+                                {/* 🧩 Profile Info */}
+                                <div className="sm:pl-4 mt-3 sm:mt-0 text-center sm:text-left space-y-3 w-full">
+                                    <h2 className="text-base sm:text-lg md:text-xl font-semibold text-gray-800">
+                                        {profile.name}
+                                    </h2>
 
-                                <div className="pl-3 space-y-2">
-                                    <h2 className="mt-2 font-semibold">{profile.name}</h2>
-
-                                    <div className="flex flex-wrap gap-2">
-                                        <button className="rounded-full bg-red-400 text-white px-3 py-1 hover:bg-red-500 transition">
+                                    {/* 🟥 Row 1 */}
+                                    <div className="flex flex-wrap justify-center sm:justify-start gap-2">
+                                        <button className="rounded-full bg-red-400 text-white px-3 py-1 sm:px-4 md:px-5 text-xs sm:text-sm md:text-base hover:bg-red-500 transition">
                                             Add/Edit Profile Details
                                         </button>
-                                        <div className='flex flex-col gap-2'>
-                                            <button className="rounded-full bg-red-400 text-white px-3 py-1 hover:bg-red-500 transition">
-                                                Get Matches
-                                            </button>
-                                            <button className="rounded-full bg-red-400 text-white px-3 py-1 hover:bg-red-500 transition">
-                                                Perfect Matches
-                                            </button>
-                                        </div>
                                     </div>
 
+                                    {/* 🟥 Row 2 */}
+                                    <div className="flex flex-wrap justify-center sm:justify-start gap-2">
+                                        <button className="rounded-full bg-red-400 text-white px-3 py-1 sm:px-4 md:px-5 text-xs sm:text-sm md:text-base hover:bg-red-500 transition">
+                                            Get Matches
+                                        </button>
+                                        <button className="rounded-full bg-red-400 text-white px-3 py-1 sm:px-4 md:px-5 text-xs sm:text-sm md:text-base hover:bg-red-500 transition">
+                                            Perfect Matches
+                                        </button>
+                                    </div>
 
-                                    <div className=" flex space-y-2">
-                                        <div>Get match:</div>
-                                        <div className="flex gap-2 pl-2">
-                                            <button className="rounded-full bg-red-400 text-white px-3 py-1 hover:bg-red-500 transition">
+                                    {/* 🟧 Get Match Section */}
+                                    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2 mt-2">
+                                        <div className="font-medium text-gray-700 text-sm sm:text-base">
+                                            Get match:
+                                        </div>
+                                        <div className="flex gap-2">
+                                            <button className="rounded-full bg-red-400 text-white px-3 py-1 sm:px-4 md:px-5 text-xs sm:text-sm md:text-base hover:bg-red-500 transition">
                                                 Stop
                                             </button>
-                                            <button className="rounded-full bg-amber-600 text-white px-3 py-1 hover:bg-amber-700 transition">
+                                            <button className="rounded-full bg-amber-600 text-white px-3 py-1 sm:px-4 md:px-5 text-xs sm:text-sm md:text-base hover:bg-amber-700 transition">
                                                 Block
                                             </button>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
+
             </div>
+
 
         </div>
     );

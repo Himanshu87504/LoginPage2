@@ -1,7 +1,10 @@
 import { createContext, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const UserContext = createContext();
+
+
 
 export const UserProvider = ({ children }) => {
 
@@ -10,6 +13,7 @@ export const UserProvider = ({ children }) => {
     const [loginTokenotp, setLoginTokenotp] = useState("");
     const [ForgetTokenotp, setForgetTokenotp] = useState("");
     const server = "https://made4ever-server.onrender.com"
+
 
     // const server = "http://localhost:5001";
 
@@ -23,6 +27,8 @@ export const UserProvider = ({ children }) => {
                 setToken(response.data.token);
                 localStorage.setItem("token", response.data.token);
                 alert(response.data.message);
+                const navigate = useNavigate();
+                navigate("/dashboard")
                 return response;
             }
         } catch (error) {
