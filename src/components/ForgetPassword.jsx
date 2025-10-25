@@ -3,8 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../Context/UserContext";
 
 const ForgetPassword = () => {
-    const { ForgetPassword, verifypasswordotp, ForgetTokenotp } =
-        useContext(UserContext);
+    const { forgetPassword, verifyPasswordOtp, forgetTokenOtp } = useContext(UserContext);
 
     const [email, setEmail] = useState("");
     const [otp, setOtp] = useState("");
@@ -12,22 +11,17 @@ const ForgetPassword = () => {
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault(); // prevent page reload
         try {
-
-            if (!ForgetTokenotp) {
-                const res = await ForgetPassword(email);
+            if (!forgetTokenOtp) {
+                const res = await forgetPassword(email);
                 alert(res?.message || "OTP sent successfully to your email!");
-            }
-
-            else if (ForgetTokenotp && !newPassword) {
+            } else if (forgetTokenOtp && !newPassword) {
                 alert("Please enter a new password to reset your account.");
-            }
-
-            else {
-                const res = await verifypasswordotp(otp, newPassword);
+            } else {
+                const res = await verifyPasswordOtp(otp, newPassword);
                 alert(res?.message || "Password changed successfully!");
-                navigate("/");
+                navigate("/login");
             }
         } catch (err) {
             alert(err?.message || "Something went wrong!");
@@ -38,11 +32,11 @@ const ForgetPassword = () => {
         <div className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-b from-pink-100 to-white px-4">
             <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-6 border border-pink-300">
                 <h2 className="text-3xl font-bold text-center text-pink-600 mb-6">
-                    Forgot Password.
+                    Forgot Password
                 </h2>
 
-                <form onSubmit={handleSubmit()} className="space-y-4">
-                    {!ForgetTokenotp ? (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                    {!forgetTokenOtp ? (
                         <>
                             <label className="block text-gray-700 font-semibold">Email</label>
                             <input
@@ -84,12 +78,12 @@ const ForgetPassword = () => {
 
                     <button
                         type="submit"
-                        className={`w-full ${ForgetTokenotp
+                        className={`w-full ${forgetTokenOtp
                             ? "bg-green-500 hover:bg-green-600"
                             : "bg-pink-500 hover:bg-pink-600"
                             } text-white font-semibold py-2 rounded-lg transition-all`}
                     >
-                        {ForgetTokenotp ? "Change Password" : "Request OTP"}
+                        {forgetTokenOtp ? "Change Password" : "Request OTP"}
                     </button>
                 </form>
 

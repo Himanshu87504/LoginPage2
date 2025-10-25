@@ -33,6 +33,7 @@ export const UserProvider = ({ children }) => {
     const signup = async (formData) => {
         try {
             const res = await axios.post(`${server}/api/signup`, formData);
+            console.log(res);
             localStorage.setItem("activationToken", res.data.activationToken);
             return res.data;
         } catch (err) {
@@ -57,8 +58,9 @@ export const UserProvider = ({ children }) => {
     const requestOtpLogin = async (email) => {
         try {
             const res = await axios.post(`${server}/api/request-otp-login`, { email });
+            console.log(res);
             setLoginTokenOtp(res.data.loginToken);
-            return res.data;
+            return { message: "OTP sent successfully!" };
         } catch (err) {
             throw new Error(err.response?.data?.message || "Failed to send OTP");
         }
@@ -73,20 +75,20 @@ export const UserProvider = ({ children }) => {
                 loginToken: loginTokenOtp,
             });
 
-
             setLoginTokenOtp("");
             localStorage.setItem("token", res.data.token);
-            return res.data;
+            return { message: "Login successful!", ...res.data };
         } catch (err) {
             throw new Error(err.response?.data?.message || "OTP verification failed");
         }
     };
 
+
     // ------------------ Forget Password ------------------
     const forgetPassword = async (email) => {
         try {
             const res = await axios.post(`${server}/api/forgot-password`, { email });
-            console.log("hellollllllll");
+            console.log(res);
             setForgetTokenOtp(res.data.resetToken);
             return res.data;
         } catch (err) {

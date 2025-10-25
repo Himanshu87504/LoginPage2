@@ -4,7 +4,8 @@ import { UserContext } from "../Context/UserContext";
 import { useNavigate } from "react-router-dom";
 
 const OtpLogin = () => {
-    const { loginTokenotp, requestOtpLogin, verifyOtpLogin } = useContext(UserContext);
+    const { loginTokenOtp, requestOtpLogin, verifyOtpLogin } = useContext(UserContext);
+
     const [email, setEmail] = useState("");
     const [otp, setOtp] = useState("");
 
@@ -13,7 +14,7 @@ const OtpLogin = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            if (!loginTokenotp) {
+            if (!loginTokenOtp) {
                 const res = await requestOtpLogin(email);
                 alert(res.message);
 
@@ -21,7 +22,7 @@ const OtpLogin = () => {
             } else {
                 const res = await verifyOtpLogin(otp);
                 alert(res.message || "✅ Login successful!");
-                navigate("/");
+                navigate("/dashboard");
             }
         } catch (err) {
             alert(err.message);
@@ -34,7 +35,7 @@ const OtpLogin = () => {
                 <h2 className="text-2xl font-bold text-center text-pink-600 mb-4">OTP Login</h2>
 
                 <form onSubmit={handleSubmit}>
-                    {!loginTokenotp ? (
+                    {!loginTokenOtp ? (
                         <>
                             <label className="block text-gray-700 font-semibold mb-1">Email or Username</label>
                             <input
@@ -62,10 +63,10 @@ const OtpLogin = () => {
 
                     <button
                         type="submit"
-                        className={`w-full ${loginTokenotp ? "bg-green-500 hover:bg-green-600" : "bg-pink-500 hover:bg-pink-600"
+                        className={`w-full ${loginTokenOtp ? "bg-green-500 hover:bg-green-600" : "bg-pink-500 hover:bg-pink-600"
                             } text-white font-semibold py-2 rounded`}
                     >
-                        {loginTokenotp ? "Verify OTP" : "Request OTP"}
+                        {loginTokenOtp ? "Verify OTP" : "Request OTP"}
                     </button>
                 </form>
 
