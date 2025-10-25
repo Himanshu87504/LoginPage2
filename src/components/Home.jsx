@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../Context/UserContext";
 
 const Home = () => {
+    const { user, isAuth, logout } = useContext(UserContext);
+    console.log(user, isAuth);
     const navigate = useNavigate();
     return (
         <>
@@ -12,19 +15,54 @@ const Home = () => {
                     backgroundImage: "url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7')",
                 }}
             >
+
                 <div className="text-center text-white px-4">
+                    <div>
+                        {user ? (
+                            <h2 className="text-black">Welcome: {user.name}</h2>
+                        ) : (
+                            <span></span>
+                        )}
+                    </div>
+
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
                         India's #1st online earning and matchmaking <br /> web portal for marriage bureaus
                     </h1>
                     <h4 className="text-pink-500 text-xl sm:text-2xl font-semibold mt-4">
                         Made4Ever
                     </h4>
-                    <button
-                        className="px-4 py-1 bg-pink-500 text-white rounded hover:bg-pink-600 transition"
-                        onClick={() => navigate("/login")}
-                    >
-                        Login
-                    </button>
+                    {/* {
+                        isAuth ? (
+                            <button
+                                className="px-4 py-1 bg-pink-500 text-white rounded hover:bg-pink-600 transition"
+                                onClick={() => navigate("/login")}
+                            >
+                                Login
+                            </button>) : (
+                            <button
+                                className="px-4 py-1 bg-pink-500 text-white rounded hover:bg-pink-600 transition"
+                                onClick={logout()}
+                            >
+                                Logout
+                            </button>
+                        )
+                    } */}
+                    {
+                        isAuth ? (
+                            <button
+                                className="px-4 py-1 bg-pink-500 text-white rounded hover:bg-pink-600 transition"
+                                onClick={() => logout()}
+                            >
+                                Logout
+                            </button>) : (
+                            <button
+                                className="px-4 py-1 bg-pink-500 text-white rounded hover:bg-pink-600 transition"
+                                onClick={() => navigate("/login")}
+                            >
+                                Login
+                            </button>
+                        )
+                    }
                 </div>
             </div>
 

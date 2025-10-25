@@ -6,7 +6,7 @@ import Menu from "./Menu";
 
 const LoginPage = () => {
     const [form, setForm] = useState({ email: "", password: "" });
-    const { loginUser, user } = useContext(UserContext);
+    const { loginUser } = useContext(UserContext);
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
@@ -21,7 +21,6 @@ const LoginPage = () => {
 
         if (success) {
             alert("✅ Login successful!");
-            console.log("Logged in user:", user);
             navigate("/dashboard");
         } else {
             alert("❌ Invalid email or password.");
