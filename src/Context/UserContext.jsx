@@ -9,6 +9,7 @@ export const UserProvider = ({ children }) => {
     const [forgetTokenOtp, setForgetTokenOtp] = useState("");
     const [user, setUser] = useState(null);
     const [isAuth, setIsAuth] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     // const server = "http://localhost:5001";
     const server = "https://made4ever-server.onrender.com";
@@ -35,19 +36,26 @@ export const UserProvider = ({ children }) => {
     // ------------------ Normal Login ------------------
     const loginUser = async (form) => {
         try {
+            setLoading(true); // start loading BEFORE request
+
             const response = await axios.post(`${server}/api/login`, form);
+
             if (response.data.token) {
                 setToken(response.data.token);
                 localStorage.setItem("token", response.data.token);
                 await fetchUser();
                 return true;
             }
+
             return false;
         } catch (error) {
             console.error("Login error:", error.response?.data || error.message);
             return false;
+        } finally {
+            setLoading(false); // stop loading after success or error
         }
     };
+
 
     // ------------------ Signup ------------------
     const signup = async (formData) => {
@@ -166,6 +174,7 @@ export const UserProvider = ({ children }) => {
                 forgetTokenOtp,
                 isAuth,
                 logout,
+                loading
             }}
         >
             {children}

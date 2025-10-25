@@ -6,7 +6,7 @@ import Menu from "./Menu";
 
 const LoginPage = () => {
     const [form, setForm] = useState({ email: "", password: "" });
-    const { loginUser } = useContext(UserContext);
+    const { loginUser, loading } = useContext(UserContext);
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
@@ -99,10 +99,13 @@ const LoginPage = () => {
 
                         <button
                             type="submit"
-                            className="w-full py-2 bg-pink-500 hover:bg-pink-600 text-white font-semibold rounded transition duration-200 mb-4"
+                            className={`w-full py-2 text-white font-semibold rounded transition duration-200 mb-4 ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-pink-500 hover:bg-pink-600"
+                                }`}
+                            disabled={loading} // prevent clicks while loading
                         >
-                            Login
+                            {loading ? "Logging in..." : "Login"} {/* Show loading text */}
                         </button>
+
 
                         <div className="flex flex-col items-end text-sm space-y-1">
                             <Link to="/otpLogin" className="text-red-500 hover:underline">
