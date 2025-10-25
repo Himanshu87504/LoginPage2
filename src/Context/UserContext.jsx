@@ -9,8 +9,8 @@ export const UserProvider = ({ children }) => {
     const [loginTokenOtp, setLoginTokenOtp] = useState("");
     const [forgetTokenOtp, setForgetTokenOtp] = useState("");
 
-    // const server = "http://localhost:5001";
-    const server = "https://made4ever-server.onrender.com";
+    const server = "http://localhost:5001";
+    // const server = "https://made4ever-server.onrender.com";
 
     // ------------------ Normal Login ------------------
     const loginUser = async (form) => {
