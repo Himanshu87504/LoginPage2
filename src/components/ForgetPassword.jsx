@@ -41,7 +41,7 @@ const ForgetPassword = () => {
                     Forgot Password
                 </h2>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit()} className="space-y-4">
                     {!ForgetTokenotp ? (
                         <>
                             <label className="block text-gray-700 font-semibold">Email</label>
