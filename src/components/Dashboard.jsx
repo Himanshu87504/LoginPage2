@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import profiles from "../components/Data.json";
+import { UserContext } from "../Context/UserContext";
 
 const Dashboard = () => {
+    //const { user } = useContext(UserContext);
     return (
         <div className="w-full min-h-screen relative px-5 md:px-20 py-5 space-y-6">
 
-            {/* Top Section: Header + Search */}
+
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-15">
                 <div className="text-xl semi-bold">MSP -- All User</div>
                 <div className="flex gap-2">
