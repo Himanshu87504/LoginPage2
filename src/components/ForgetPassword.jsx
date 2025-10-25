@@ -14,16 +14,16 @@ const ForgetPassword = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Step 1: Request OTP
+
             if (!ForgetTokenotp) {
                 const res = await ForgetPassword(email);
                 alert(res?.message || "OTP sent successfully to your email!");
             }
-            // Step 2: Ensure user entered new password
+
             else if (ForgetTokenotp && !newPassword) {
                 alert("Please enter a new password to reset your account.");
             }
-            // Step 3: Verify OTP and change password
+
             else {
                 const res = await verifypasswordotp(otp, newPassword);
                 alert(res?.message || "Password changed successfully!");

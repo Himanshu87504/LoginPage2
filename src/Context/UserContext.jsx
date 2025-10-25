@@ -86,6 +86,7 @@ export const UserProvider = ({ children }) => {
     const forgetPassword = async (email) => {
         try {
             const res = await axios.post(`${server}/api/forgot-password`, { email });
+            console.log("hellollllllll");
             setForgetTokenOtp(res.data.resetToken);
             return res.data;
         } catch (err) {
