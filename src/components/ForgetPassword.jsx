@@ -3,7 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../Context/UserContext";
 
 const ForgetPassword = () => {
-    const { ForgetPassword, verifypasswordotp, ForgetTokenotp } = useContext(UserContext);
+    const { ForgetPassword, verifypasswordotp, ForgetTokenotp } =
+        useContext(UserContext);
+
     const [email, setEmail] = useState("");
     const [otp, setOtp] = useState("");
     const [newPassword, setNewPassword] = useState("");
@@ -12,16 +14,19 @@ const ForgetPassword = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            // Step 1: Request OTP
             if (!ForgetTokenotp) {
                 const res = await ForgetPassword(email);
                 alert(res?.message || "OTP sent successfully to your email!");
             }
+            // Step 2: Ensure user entered new password
             else if (ForgetTokenotp && !newPassword) {
                 alert("Please enter a new password to reset your account.");
             }
+            // Step 3: Verify OTP and change password
             else {
                 const res = await verifypasswordotp(otp, newPassword);
-                alert(res?.message);
+                alert(res?.message || "Password changed successfully!");
                 navigate("/");
             }
         } catch (err) {
@@ -32,7 +37,9 @@ const ForgetPassword = () => {
     return (
         <div className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-b from-pink-100 to-white px-4">
             <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-6 border border-pink-300">
-                <h2 className="text-3xl font-bold text-center text-pink-600 mb-6">Forgot Password</h2>
+                <h2 className="text-3xl font-bold text-center text-pink-600 mb-6">
+                    Forgot Password
+                </h2>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     {!ForgetTokenotp ? (
@@ -49,7 +56,9 @@ const ForgetPassword = () => {
                         </>
                     ) : (
                         <>
-                            <label className="block text-gray-700 font-semibold">Enter OTP</label>
+                            <label className="block text-gray-700 font-semibold">
+                                Enter OTP
+                            </label>
                             <input
                                 type="number"
                                 placeholder="Enter 6-digit OTP"
@@ -59,7 +68,9 @@ const ForgetPassword = () => {
                                 required
                             />
 
-                            <label className="block text-gray-700 font-semibold">New Password</label>
+                            <label className="block text-gray-700 font-semibold">
+                                New Password
+                            </label>
                             <input
                                 type="password"
                                 placeholder="Enter new password"
