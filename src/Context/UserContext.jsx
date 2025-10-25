@@ -10,8 +10,8 @@ export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [isAuth, setIsAuth] = useState(false);
 
-    const server = "http://localhost:5001";
-    // const server = "https://made4ever-server.onrender.com";
+    // const server = "http://localhost:5001";
+    const server = "https://made4ever-server.onrender.com";
 
     // ------------------ Fetch User ------------------
     const fetchUser = async () => {
