@@ -68,9 +68,9 @@ const Menu = () => {
                     >
                         Contact us
                     </Link>
-                    {/* {isAuth ? (<Link to="/"
+                    {isAuth ? (<Link to="/"
                         onClick={() => logout()}
-                        className="block py-2 px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition">Logout</Link>) : ""} */}
+                        className="block py-2 px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition">Logout</Link>) : ""}
                 </nav>
 
                 {/* Mobile Hamburger */}
