@@ -1,66 +1,76 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../Context/UserContext";
+
 
 const Menu = () => {
     const navigate = useNavigate();
+    const { isAuth, logout } = useContext(UserContext);
     const [isOpen, setIsOpen] = useState(false);
 
     return (
         <header className="w-full bg-white/50 backdrop-blur-sm shadow-sm fixed top-0 left-0 z-50">
-            <div className="flex justify-between items-center px-4 sm:px-8 md:px-16 py-4">
-                <div className="text-2xl font-bold text-pink-600">💍 Made4Ever</div>
+            <div className="flex justify-between items-center px-4 sm:px-4 md:px-4 py-4 ">
+                <div className="text-xl sm:text-2xl font-bold text-pink-600 block whitespace-nowrap">
+                    💍 Made4Ever
+                </div>
 
                 {/* Desktop Menu */}
-                <nav className="hidden md:flex items-center gap-6 text-gray-700 font-medium text-sm md:text-base">
+                <nav className="hidden md:flex items-center gap-1 lg:gap-4 text-gray-700 font-medium text-xs md:text-base">
                     <Link
                         to="/"
-                        className="block py-2 px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition"
+                        className="block py-2 px-1 lg:px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition text "
                         onClick={() => setIsOpen(false)}
                     >
                         Home
                     </Link>
-                    <Link
+
+                    {isAuth ? (<Link
+                        to="/dashboard"
+                        className="block py-2  px-1 lg:px-3 rounded hover:bg-pink-550 hover:text-pink-600 transition text-pink-500"
+                        onClick={() => setIsOpen(false)}
+                    >
+                        Dashboard
+                    </Link>) : (<Link
                         to="/signup"
-                        className="block py-2 px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition"
+                        className="block py-2  px-1 lg:px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition"
                         onClick={() => setIsOpen(false)}
                     >
                         Register
-                    </Link>
+                    </Link>)}
+
+
                     <Link
                         to="/msp/marriagebureaulogin"
-                        className="block py-2 px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition"
+                        className="block py-2  px-1 lg:px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition truncate"
                         onClick={() => setIsOpen(false)}
                     >
                         MSP/ Marriage Bureau Login
                     </Link>
                     <Link
                         to="/plans"
-                        className="block py-2 px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition"
+                        className="block py-2  px-1 lg:px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition"
                         onClick={() => setIsOpen(false)}
                     >
                         Plans
                     </Link>
                     <Link
                         to="/gallery"
-                        className="block py-2 px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition"
+                        className="block py-2  px-1 lg:px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition"
                         onClick={() => setIsOpen(false)}
                     >
                         Gallery
                     </Link>
                     <Link
                         to="/contactus"
-                        className="block py-2 px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition"
+                        className="block py-2  px-1 lg:px-3rounded hover:bg-pink-50 hover:text-pink-600 transition truncate"
                         onClick={() => setIsOpen(false)}
                     >
                         Contact us
                     </Link>
-
-                    {/* <button
-                        className="px-4 py-1 bg-pink-500 text-white rounded hover:bg-pink-600 transition"
-                        onClick={() => navigate("/signup")}
-                    >
-                        Signup
-                    </button> */}
+                    {/* {isAuth ? (<Link to="/"
+                        onClick={() => logout()}
+                        className="block py-2 px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition">Logout</Link>) : ""} */}
                 </nav>
 
                 {/* Mobile Hamburger */}
@@ -155,18 +165,33 @@ const Menu = () => {
                     </li>
 
                     <div className="flex items-center gap-2 ml-4 mt-2">
-                        <button
-                            className="px-4 py-1 border border-pink-500 text-pink-500 rounded hover:bg-pink-500 hover:text-white transition"
-                            onClick={() => navigate("/")}
-                        >
-                            Login
-                        </button>
-                        <button
-                            className="px-4 py-1 bg-pink-500 text-white rounded hover:bg-pink-600 transition"
-                            onClick={() => navigate("/signup")}
-                        >
-                            Signup
-                        </button>
+                        {!isAuth ? (
+
+                            <div className="flex gap-2">
+                                <button
+                                    className="px-4 py-1 border border-pink-500 text-pink-500 rounded hover:bg-pink-500 hover:text-white transition"
+                                    onClick={() => navigate("/login")}
+                                >
+                                    Login
+                                </button>
+                                <button
+                                    className="px-4 py-1 bg-pink-500 text-white rounded hover:bg-pink-600 transition"
+                                    onClick={() => navigate("/signup")}
+                                >
+                                    Signup
+                                </button>
+                            </div>
+                        ) : (
+                            <button
+                                className="px-4 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition"
+                                onClick={logout}
+                            >
+                                Logout
+                            </button>
+                        )}
+
+
+
                     </div>
                 </ul>
             </div>

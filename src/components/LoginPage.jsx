@@ -103,7 +103,7 @@ const LoginPage = () => {
                                 }`}
                             disabled={loading} // prevent clicks while loading
                         >
-                            {loading ? "Logging in..." : "Login"} {/* Show loading text */}
+                            {loading ? "Logging in..." : "Login"}
                         </button>
 
 

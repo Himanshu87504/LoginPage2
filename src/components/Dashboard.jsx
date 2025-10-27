@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import profiles from "../components/Data.json";
 import { UserContext } from "../Context/UserContext";
+import { Link, useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
     //const { user } = useContext(UserContext);
@@ -9,7 +10,7 @@ const Dashboard = () => {
 
 
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-15">
-                <div className="text-xl semi-bold">MSP -- All User</div>
+                <div className="text-xl semi-bold">MSP All User</div>
                 <div className="flex gap-2">
                     <input
                         type="text"
@@ -127,9 +128,13 @@ const Dashboard = () => {
 
                                     {/* 🟥 Row 2 */}
                                     <div className="flex flex-wrap justify-center sm:justify-start gap-2">
-                                        <button className="rounded-full bg-red-400 text-white px-3 py-1 sm:px-4 md:px-5 text-xs sm:text-sm md:text-base hover:bg-red-500 transition">
+                                        <Link
+                                            to={`/viewprofile/${profile.id}`}
+                                            className="rounded-full bg-red-400 text-white px-3 py-1 sm:px-4 md:px-5 text-xs sm:text-sm md:text-base hover:bg-red-500 transition"
+                                        >
                                             Get Matches
-                                        </button>
+                                        </Link>
+
                                         <button className="rounded-full bg-red-400 text-white px-3 py-1 sm:px-4 md:px-5 text-xs sm:text-sm md:text-base hover:bg-red-500 transition">
                                             Perfect Matches
                                         </button>

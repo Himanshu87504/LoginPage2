@@ -1,8 +1,17 @@
 [
     {
         "id": 1,
-        "name": "Ashish Narang",
-        "profilePic": "https://randomuser.me/api/portraits/men/1.jpg"
+        "name": "Himanshu",
+        "age": 28,
+        "height": "6",
+        "religion": "Hindu",
+        "maritalStatus": "Never Married",
+        "location": "Mumbai, Maharashtra",
+        "createdBy": "Self",
+        "education": "B.Tech in Computer Science",
+        "profession": "Software Engineer",
+        "income": "₹10–12 Lakh per annum",
+        "profilePic": "https://randomuser.me/api/portraits/men/3.jpg"
     },
     {
         "id": 2,

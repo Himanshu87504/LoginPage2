@@ -20,7 +20,7 @@ const ForgetPassword = () => {
                 alert("Please enter a new password to reset your account.");
             } else {
                 const res = await verifyPasswordOtp(otp, newPassword);
-                // alert(res?.message || "Password changed successfully!");
+                alert(res?.message || "Password changed successfully!");
                 navigate("/login");
             }
         } catch (err) {
