@@ -92,12 +92,12 @@ const ViewProfile = () => {
 
 
                                     <div className="text-center sm:text-left">
-                                        <h2 className="font-medium text-base sm:text-lg mb-1">{item.name}</h2>
+                                        <h2 className="font-medium text-base  md:text-base mb-1">{item.name}</h2>
 
                                         <Link
                                             to={`/viewprofile/${item.id}`}
                                             onClick={() => window.scrollTo(0, 0)}
-                                            className="inline-block mt-2 px-2 w-20  sm:w-30  sm:px-4 py-1 bg-pink-500 hover:bg-pink-600 text-white rounded text-[5px] sm:text-sm whitespace-nowrap"
+                                            className="inline-block mt-2 px-2 w-22  text-base sm:text-[10px] py-1 bg-pink-500 hover:bg-pink-600 text-white rounded text-[8px] sm:text-sm whitespace-nowrap"
                                         >
                                             View Full Details
                                         </Link>
