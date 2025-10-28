@@ -119,13 +119,21 @@ const Menu = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link
-                            to="/register"
-                            className="block py-2 px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition"
+                        {isAuth ? (<Link
+                            to="/dashboard"
+                            className="block py-2  px-1 lg:px-3 rounded hover:bg-pink-550 hover:text-pink-600 transition text-pink-500"
                             onClick={() => setIsOpen(false)}
                         >
-                            Register
-                        </Link>
+                            Dashboard
+                        </Link>) : (
+                            <Link
+                                to="/register"
+                                className="block py-2 px-3 rounded hover:bg-pink-50 hover:text-pink-600 transition"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                Register
+                            </Link>
+                        )}
                     </li>
                     <li>
                         <Link
