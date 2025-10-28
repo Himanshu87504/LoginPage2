@@ -1,111 +1,119 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import profiles from "../Data.json";
 import ProfileDetails from "./ProfileDetails";
-import { Link, useNavigate } from "react-router-dom";
 
 const ViewProfile = () => {
     const { id } = useParams();
     const data = profiles.find((p) => p.id === Number(id));
     const match = profiles.filter((p) => p.gender !== data.gender);
 
-
     return (
-        <div
-            className="pt-20 pl-5 pr-5">
-
-            <div className="md:flex w-full space-x-2">
-                <div className="w-full space-x-5">
-                    <div>
-                        <div className="font-serif text-3xl">ProfileId:{id}</div>
-                        <div className="text-xl">Name: {data.name}</div>
-                    </div>
-                    <div className=" border border-gray-200 border-t-4 border-t-red-600 p-4 w-full sm:flex space-x-7">
-                        <div className=" p-6 pt-4">
-                            <img src={data.profilePic} className="h-64 w-64 border-3 border-gray-200" alt="" />
-                        </div>
-                        <div className="flex flex-col justify-center space-y-3 pl-4 sm:pl-7 text-sm sm:text-base">
-                            <div>
-                                Age / Height:
-                                <span className="ml-4 text-gray-700">
-                                    {data.age} yrs / {data.height}
-                                </span>
-                            </div>
-                            <div>
-                                Religion:
-                                <span className="ml-4 text-gray-700">{data.religion}</span>
-                            </div>
-                            <div>
-                                Marital Status:
-                                <span className="ml-4 text-gray-700">{data.maritalStatus}</span>
-                            </div>
-                            <div>
-                                Location:
-                                <span className="ml-4 text-gray-700">{data.location}</span>
-                            </div>
-                            <div>
-                                Profile Created by:
-                                <span className="ml-4 text-gray-700">{data.createdBy}</span>
-                            </div>
-                            <div>
-                                Education:
-                                <span className="ml-4 text-gray-700">{data.education}</span>
-                            </div>
-                            <div>
-                                Profession:
-                                <span className="ml-4 text-gray-700">{data.profession}</span>
-                            </div>
-                            <div>
-                                Income:
-                                <span className="ml-4 text-gray-700">{data.income}</span>
-                            </div>
-                        </div>
-
+        <div className="pt-24 px-5 md:px-10 bg-gray-50 min-h-screen">
+            {/* Main Container */}
+            <div className="flex flex-col md:flex-row gap-8">
+                {/* Left: Profile Info */}
+                <div className="w-full md:w-2/3 space-y-6">
+                    {/* Profile Header */}
+                    <div className="bg-white p-6 rounded-2xl shadow-md border border-pink-100">
+                        <h1 className="font-serif text-3xl text-pink-600 mb-2">
+                            Profile ID: {id}
+                        </h1>
+                        <p className="text-xl text-gray-800 font-medium">{data.name}</p>
                     </div>
 
-                    <div>
-                        <ProfileDetails id={data} />
+                    {/* Basic Info Card */}
+                    <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-6 flex flex-col sm:flex-row gap-6">
+                        {/* Profile Image */}
+                        <div className="flex justify-center sm:justify-start">
+                            <img
+                                src={data.profilePic}
+                                alt={data.name}
+                                className="h-64 w-64 object-cover rounded-xl border-4 border-pink-200 shadow"
+                            />
+                        </div>
+
+                        {/* Profile Details */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-800 text-sm sm:text-base font-[500] flex-1">
+                            <div>
+                                <span className="font-semibold text-gray-700">Age / Height:</span>{" "}
+                                {data.age} yrs / {data.height}
+                            </div>
+                            <div>
+                                <span className="font-semibold text-gray-700">Religion:</span>{" "}
+                                {data.religion}
+                            </div>
+                            <div>
+                                <span className="font-semibold text-gray-700">Marital Status:</span>{" "}
+                                {data.maritalStatus}
+                            </div>
+                            <div>
+                                <span className="font-semibold text-gray-700">Location:</span>{" "}
+                                {data.location}
+                            </div>
+                            <div>
+                                <span className="font-semibold text-gray-700">Created By:</span>{" "}
+                                {data.createdBy}
+                            </div>
+                            <div>
+                                <span className="font-semibold text-gray-700">Education:</span>{" "}
+                                {data.education}
+                            </div>
+                            <div>
+                                <span className="font-semibold text-gray-700">Profession:</span>{" "}
+                                {data.profession}
+                            </div>
+                            <div>
+                                <span className="font-semibold text-gray-700">Income:</span>{" "}
+                                {data.income}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Additional Profile Details */}
+                    <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-6">
+                        <ProfileDetails profile={data} />
                     </div>
                 </div>
 
-                <div className="border-4 border-gray-300 w-full md:w-1/3 p-3 rounded-lg">
-                    <h1 className="font-serif text-2xl text-center mb-4">Get Match</h1>
+                {/* Right: Match Suggestions */}
+                <div className="w-full md:w-1/3 h-screen sticky top-20">
+                    <div className="bg-white border border-pink-100 rounded-2xl shadow-md p-5 h-full flex flex-col">
+                        <h2 className="font-serif text-2xl text-center text-pink-600 mb-4 border-b border-gray-200 pb-2">
+                            Potential Matches 💕
+                        </h2>
 
-                    {/* Scrollable list */}
-                    <div className="flex flex-col gap-4 max-h-[500px] md:max-h-[900px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 pr-2">
-                        {match.map((item, index) => (
-                            <div
-                                key={index}
-                                className="border border-gray-200 rounded-lg p-2 shadow-sm hover:shadow-md transition bg-white"
-                            >
-                                <p className="text-red-400 font-semibold mb-1">Profile ID: {item.id}</p>
+                        <div className="flex-1 flex flex-col gap-4 overflow-y-auto scrollbar-thin scrollbar-thumb-pink-300 scrollbar-track-pink-50 pr-2">
+                            {match.map((item, index) => (
+                                <div
+                                    key={index}
+                                    className="border border-gray-200 rounded-xl p-3 bg-gray-50 hover:bg-pink-50 hover:shadow transition duration-200"
+                                >
+                                    <p className="text-pink-600 font-semibold text-sm mb-1">
+                                        Profile ID: {item.id}
+                                    </p>
 
-                                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3">
-
-                                    <div className="border-2 border-gray-200 rounded-lg overflow-hidden w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center bg-white">
+                                    <div className="flex items-center gap-3">
                                         <img
                                             src={item.profilePic}
                                             alt={item.name}
-                                            className="w-full h-full object-cover"
+                                            className="w-20 h-20 object-cover rounded-lg border-2 border-pink-100"
                                         />
+
+                                        <div>
+                                            <h3 className="font-medium text-gray-800">{item.name}</h3>
+                                            <Link
+                                                to={`/viewprofile/${item.id}`}
+                                                onClick={() => window.scrollTo(0, 0)}
+                                                className="inline-block mt-2 px-3 py-1 bg-pink-500 hover:bg-pink-600 text-white text-xs font-medium rounded-lg transition duration-200"
+                                            >
+                                                View Full Details
+                                            </Link>
+                                        </div>
                                     </div>
-
-
-                                    <div className="text-center sm:text-left">
-                                        <h2 className="font-medium text-base  md:text-base mb-1">{item.name}</h2>
-
-                                        <Link
-                                            to={`/viewprofile/${item.id}`}
-                                            onClick={() => window.scrollTo(0, 0)}
-                                            className="inline-block mt-2 px-2 w-22  text-base sm:text-[10px] py-1 bg-pink-500 hover:bg-pink-600 text-white rounded text-[8px] sm:text-sm whitespace-nowrap"
-                                        >
-                                            View Full Details
-                                        </Link>
-                                    </div>
-
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </div>
 
