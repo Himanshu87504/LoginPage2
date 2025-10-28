@@ -11,27 +11,32 @@ const ProfileDetails = ({ profile }) => {
     }
 
     return (
-        <div className="p-6 bg-gradient-to-b from-pink-50 to-white min-h-screen">
+        <div className="p-2 bg-gradient-to-b from-pink-50 to-white min-h-screen">
             {/* Step Navigation */}
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-6">
-                {["About Myself", "Family Details", "Partner Preference", "Property Details", "ID Details"].map(
-                    (label, index) => (
-                        <button
-                            key={index}
-                            className={`px-4 sm:px-5 py-2 rounded-full text-sm sm:text-base font-medium transition-all duration-200 shadow-sm ${step === index + 1
-                                ? "bg-pink-500 text-white shadow-pink-200"
-                                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                                }`}
-                            onClick={() => setStep(index + 1)}
-                        >
-                            {label}
-                        </button>
-                    )
-                )}
+            <div className="flex justify-center gap-1 sm:gap-2 md:gap-4 mb-6">
+                {[
+                    "About Myself",
+                    "Family Details",
+                    "Partner Preference",
+                    "Property Details",
+                    "ID Details",
+                ].map((label, index) => (
+                    <button
+                        key={index}
+                        className={`px-2 lg:px-4 py-1 lg:py-1.5 md:py-2 rounded-full text-xs lg:text-sm  sm:text-[14px] font-medium transition-all duration-200 shadow-sm ${step === index + 1
+                            ? "bg-pink-500 text-white shadow-pink-200"
+                            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                            }`}
+                        onClick={() => setStep(index + 1)}
+                    >
+                        {label}
+                    </button>
+                ))}
             </div>
 
+
             {/* Step Content */}
-            <div className="bg-white p-6 sm:p-10 rounded-2xl shadow-lg border border-gray-100 max-w-4xl mx-auto transition-all duration-300">
+            <div className="bg-white p-2 sm:p-10 rounded-2xl shadow-lg border border-gray-100 max-w-4xl mx-auto transition-all duration-300">
                 {/* ------------------ STEP 1: About Myself ------------------ */}
                 {step === 1 && (
                     <div>
