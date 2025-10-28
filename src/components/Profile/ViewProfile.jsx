@@ -7,6 +7,9 @@ import { Link, useNavigate } from "react-router-dom";
 const ViewProfile = () => {
     const { id } = useParams();
     const data = profiles.find((p) => p.id === Number(id));
+    const match = profiles.filter((p) => p.gender !== data.gender);
+
+
     return (
         <div
             className="pt-20 pl-5 pr-5">
@@ -70,7 +73,7 @@ const ViewProfile = () => {
 
                     {/* Scrollable list */}
                     <div className="flex flex-col gap-4 max-h-[500px] md:max-h-[900px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 pr-2">
-                        {profiles.map((item, index) => (
+                        {match.map((item, index) => (
                             <div
                                 key={index}
                                 className="border border-gray-200 rounded-lg p-2 shadow-sm hover:shadow-md transition bg-white"
@@ -93,6 +96,7 @@ const ViewProfile = () => {
 
                                         <Link
                                             to={`/viewprofile/${item.id}`}
+                                            onClick={() => window.scrollTo(0, 0)}
                                             className="inline-block mt-2 px-2 w-20  sm:w-30  sm:px-4 py-1 bg-pink-500 hover:bg-pink-600 text-white rounded text-[5px] sm:text-sm whitespace-nowrap"
                                         >
                                             View Full Details

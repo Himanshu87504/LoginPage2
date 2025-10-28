@@ -11,51 +11,61 @@
         "education": "B.Tech in Computer Science",
         "profession": "Software Engineer",
         "income": "₹10–12 Lakh per annum",
-        "profilePic": "https://randomuser.me/api/portraits/men/3.jpg"
+        "profilePic": "https://randomuser.me/api/portraits/men/3.jpg",
+        "gender": "male"
     },
     {
         "id": 2,
         "name": "Priya Sharma",
-        "profilePic": "https://randomuser.me/api/portraits/women/2.jpg"
+        "profilePic": "https://randomuser.me/api/portraits/women/2.jpg",
+        "gender": "femail"
     },
     {
         "id": 3,
         "name": "Rahul Verma",
-        "profilePic": "https://randomuser.me/api/portraits/men/3.jpg"
+        "profilePic": "https://randomuser.me/api/portraits/men/3.jpg",
+        "gender": "male"
     },
     {
         "id": 4,
         "name": "Anjali Singh",
-        "profilePic": "https://randomuser.me/api/portraits/women/4.jpg"
+        "profilePic": "https://randomuser.me/api/portraits/women/4.jpg",
+        "gender": "femail"
     },
     {
         "id": 5,
         "name": "Vikram Gupta",
-        "profilePic": "https://randomuser.me/api/portraits/men/5.jpg"
+        "profilePic": "https://randomuser.me/api/portraits/men/5.jpg",
+        "gender": "male"
     },
     {
         "id": 6,
         "name": "Sonia Kapoor",
-        "profilePic": "https://randomuser.me/api/portraits/women/6.jpg"
+        "profilePic": "https://randomuser.me/api/portraits/women/6.jpg",
+        "gender": "femail"
     },
     {
         "id": 7,
         "name": "Rohan Mehta",
-        "profilePic": "https://randomuser.me/api/portraits/men/7.jpg"
+        "profilePic": "https://randomuser.me/api/portraits/men/7.jpg",
+        "gender": "male"
     },
     {
         "id": 8,
         "name": "Neha Jain",
-        "profilePic": "https://randomuser.me/api/portraits/women/8.jpg"
+        "profilePic": "https://randomuser.me/api/portraits/women/8.jpg",
+        "gender": "femail"
     },
     {
         "id": 9,
         "name": "Karan Malhotra",
-        "profilePic": "https://randomuser.me/api/portraits/men/9.jpg"
+        "profilePic": "https://randomuser.me/api/portraits/men/9.jpg",
+        "gender": "male"
     },
     {
         "id": 10,
         "name": "Ritika Khanna",
-        "profilePic": "https://randomuser.me/api/portraits/women/10.jpg"
+        "profilePic": "https://randomuser.me/api/portraits/women/10.jpg",
+        "gender": "femail"
     }
 ]
