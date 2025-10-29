@@ -71,7 +71,7 @@ const ViewProfile = () => {
                     </div>
 
                     {/* Additional Profile Details */}
-                    <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-6">
+                    <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-1 sm:p-6">
                         <ProfileDetails profile={data} />
                     </div>
                 </div>
