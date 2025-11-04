@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import AddEmail from "./AddEmail";
+import Signature from "./Sinature";
+import Visibility from "./Visibility";
 
 const EmailConnection = () => {
     const [step, setStep] = useState(1);
@@ -158,14 +160,15 @@ const EmailConnection = () => {
                 {step === 2 && (
                     <div>
                         <h2 className="text-base font-semibold mb-4">Signature Settings</h2>
-                        <p className="text-sm text-gray-600">Configure your email signature here.</p>
+
+                        <Signature />
                     </div>
                 )}
 
                 {step === 3 && (
                     <div>
                         <h2 className="text-base font-semibold mb-4">Visibility Options</h2>
-                        <p className="text-sm text-gray-600">Set who can see your connected emails.</p>
+                        <Visibility />
                     </div>
                 )}
 
